@@ -45,6 +45,19 @@ string createString(int n)
 }
 
 
+vector<int> createArray(int n)
+{
+    vector<int> sol;
+    int mx = n*10;
+    for(int i=0;i<n;i++)
+    {
+        int x = randint(mx);
+        sol.push_back(x);
+    }
+    return sol;
+}
+
+
 // Tree functions and linked-list functions
 void print_all(TreeNode* root)
 {
