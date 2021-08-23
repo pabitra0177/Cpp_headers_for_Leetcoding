@@ -62,10 +62,36 @@ vector<int> createArray(int n)
 void print_all(TreeNode* root)
 {
     cout<<"Level order traversal"<<endl;
+    if(root == NULL)
+    {
+        cout<<"NULL"<<endl;
+        return;
+    }
     queue<TreeNode*> q;
-
+    q.push(root);
+    while (!q.empty())
+    {
+        int l = q.size();
+        TreeNode* curr;
+        while(l--)
+        {
+            curr = q.front(); q.pop();
+            if(curr == NULL)
+            {
+                cout<<"NULL"<<" ";
+            }
+            else
+            {
+                cout<<curr->val<<" ";
+                q.push(curr->left);
+                q.push(curr->right);
+            }
+        }
+    }
     cout<<endl;
+    return;
 }
+
 void print_all(ListNode* head)
 {
     while(head)
