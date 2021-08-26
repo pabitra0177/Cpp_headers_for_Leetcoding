@@ -2,7 +2,6 @@
 using namespace std;
 
 //Structures
-
 struct TreeNode
 {
     int val;
@@ -44,6 +43,32 @@ string createString(int n)
     return s;
 }
 
+// split a string
+vector<string> split(string  s,string deli)
+{
+    int n = s.size();
+    int dn = deli.size();
+    vector<string> sol;
+    if(n<2 || (s.find(deli) == -1))
+    {
+        sol.push_back(s);
+        return sol;
+    }
+
+    int pos = s.find(deli);
+    while(pos != -1)
+    {
+        string token = s.substr(0,pos);
+        sol.push_back(token);
+        pos += dn;
+        s.erase(0,pos);
+        pos = s.find(deli);
+    }
+        
+    sol.push_back(s);
+    return sol;
+}
+
 
 vector<int> createArray(int n)
 {
@@ -57,7 +82,17 @@ vector<int> createArray(int n)
     return sol;
 }
 
+void print_all(vector<string>& v)
+{
+    for(string s:v) cout<<s<<"\n";
+    cout<<endl;
+}
 
+void print_all(vector<int>& nums)
+{
+    for(int x:nums) cout<<x<<" ";
+    cout<<endl;
+}
 // Tree functions and linked-list functions
 void print_all(TreeNode* root)
 {
@@ -91,7 +126,6 @@ void print_all(TreeNode* root)
     cout<<endl;
     return;
 }
-
 void print_all(ListNode* head)
 {
     while(head)
